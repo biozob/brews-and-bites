@@ -1,0 +1,46 @@
+.hero__section {
+  background: var(--hero-bg);
+}
+
+.hero__section img {
+  max-width: 300px;
+}
+
+.hero__content h2 {
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.hero__content p {
+  color: #111;
+  margin: 20px 0;
+  line-height: 28px;
+}
+
+.buy__btn {
+  border: none;
+  outline: none;
+  padding: 8px 20px;
+  border-radius: 5px;
+  background: var(--primary-color);
+  cursor: pointer;
+  color: white;
+  font-size: 1rem;
+}
+
+.hero__content {
+  text-align: right;
+}
+
+@media only screen and (max-width: 768px) {
+  .hero__section img {
+    display: none;
+  }
+  .hero__content {
+    text-align: center;
+  }
+  .hero__content h2 {
+    font-size: 1.8rem;
+  }
+}
