@@ -11,6 +11,7 @@
   --heading-fontSize: 2rem;
   --small-text-color: #b93833;
   --heading-text-color: #911f36;
+  --toastify-color-success: var(--primary-color) !important;
 }
 
 * {

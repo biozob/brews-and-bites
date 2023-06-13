@@ -1,4 +1,3 @@
-import React from 'react';
 import { Container, Row, Col, ListGroup, ListGroupItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './footer.css';
@@ -52,26 +51,6 @@ const Footer = () => {
       <Container>
         <Row>
           <Col lg='4'>
-            <h5 className='footer__link-title'>Our Products</h5>
-            <ListGroup className='footer__quick-links'>
-              {quick__links.map((item, index) => (
-                <ListGroupItem key={index} className='ps-0 border-0'>
-                  <Link to={item.path}>{item.display}</Link>
-                </ListGroupItem>
-              ))}
-            </ListGroup>
-          </Col>
-          <Col lg='4'>
-            <h5 className='footer__link-title'>Quick Links</h5>
-            <ListGroup className='footer__quick-links'>
-              {quick__links2.map((item, index) => (
-                <ListGroupItem key={index} className='ps-0 border-0'>
-                  <Link to={item.path}>{item.display}</Link>
-                </ListGroupItem>
-              ))}
-            </ListGroup>
-          </Col>
-          <Col lg='4'>
             <h5 className='footer__link-title'>Contact</h5>
             <ListGroup className='footer__quick-links'>
               <ListGroupItem className='ps-0 border-0 d-flex align-items-center gap-3'>
@@ -101,6 +80,26 @@ const Footer = () => {
                 </h6>
                 <p className='mb-0'>+359890212177</p>
               </ListGroupItem>
+            </ListGroup>
+          </Col>
+          <Col lg='4'>
+            <h5 className='footer__link-title'>Our Products</h5>
+            <ListGroup className='footer__quick-links'>
+              {quick__links.map((item, index) => (
+                <ListGroupItem key={index} className='ps-0 border-0'>
+                  <Link to={item.path}>{item.display}</Link>
+                </ListGroupItem>
+              ))}
+            </ListGroup>
+          </Col>
+          <Col lg='4'>
+            <h5 className='footer__link-title'>Quick Links</h5>
+            <ListGroup className='footer__quick-links'>
+              {quick__links2.map((item, index) => (
+                <ListGroupItem key={index} className='ps-0 border-0'>
+                  <Link to={item.path}>{item.display}</Link>
+                </ListGroupItem>
+              ))}
             </ListGroup>
           </Col>
           <Col lg='12' className='text-center pt-5'>

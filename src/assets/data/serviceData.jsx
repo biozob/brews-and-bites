@@ -5,18 +5,18 @@ const serviceData = [
     subtitle: 'Orders over 50$',
   },
   {
-    icon: 'ri-refresh-line',
+    icon: 'ri-arrow-left-right-line',
     title: 'Easy Returns',
-    subtitle: '14days',
+    subtitle: '14 days',
   },
   {
-    icon: 'ri-secure-payment-line',
-    title: 'Secure Payment',
-    subtitle: 'Best protection',
+    icon: 'ri-money-dollar-box-line',
+    title: 'Price Guarantee',
+    subtitle: 'Fair prices',
   },
   {
-    icon: 'ri-exchange-dollar-line',
-    title: ' Back Guarantee',
+    icon: 'ri-rocket-2-line',
+    title: 'We Ship Every Day',
     subtitle: '100% sure',
   },
 ];

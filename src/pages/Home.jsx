@@ -75,6 +75,7 @@ const Home = () => {
           </Row>
         </Container>
       </section>
+      <Services />
       <section className='best__sellers'>
         <Container>
           <Row>
@@ -82,6 +83,7 @@ const Home = () => {
               <h2 className='section__title'>Best Sellers</h2>
             </Col>
             <ProductsList data={sodaProducts} />
+            <ProductsList data={chipsProducts} />
           </Row>
         </Container>
       </section>
@@ -92,11 +94,9 @@ const Home = () => {
               <h2 className='section__title'>Most wanted</h2>
             </Col>
             <ProductsList data={jellyProducts} />
-            <ProductsList data={chipsProducts} />
           </Row>
         </Container>
       </section>
-      <Services />
     </Helmet>
   );
 };
