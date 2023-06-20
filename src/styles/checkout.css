@@ -1,0 +1,32 @@
+.delivery__form .form__group input {
+  border: 1px solid var(--card-bg-02);
+}
+
+.checkout__summary {
+  padding: 20px;
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 5px;
+}
+
+.checkout__summary h6,
+.checkout__summary h4 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.checkout__summary h6 {
+  margin-bottom: 20px;
+}
+
+.checkout__summary h4 {
+  border-top: 1px solid var(--hero-bg);
+  padding-top: 20px;
+}
+
+.checkout__summary .auth__btn {
+  margin-top: 20px;
+  background-color: #fff;
+  color: var(--primary-color);
+}

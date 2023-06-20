@@ -1,8 +1,6 @@
-import React from 'react';
 import '../styles/cart.css';
 import Helmet from '../components/Helmet/Helmet';
 import { Container, Row, Col } from 'reactstrap';
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { cartActions } from '../redux/slices/cartSlice';
 import { useSelector, useDispatch } from 'react-redux';
@@ -27,7 +25,7 @@ const Cart = () => {
       <section>
         <Container>
           <Row>
-            <Col lg='9'>
+            <Col lg='9' className='mt-3'>
               {cartItems.length === 0 ? (
                 <>
                   <h2 className='fs-4 mb-4'>There are no items in the cart.</h2>
@@ -36,28 +34,30 @@ const Cart = () => {
                   </button>
                 </>
               ) : (
-                <table className='table bordered'>
-                  <thead>
-                    <tr>
-                      <th>Image</th>
-                      <th>Title</th>
-                      <th>Price</th>
-                      <th>Qty</th>
-                      <th>Delete</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {cartItems.map((item, index) => (
-                      <Tr item={item} key={index} />
-                    ))}
-                  </tbody>
-                </table>
+                <>
+                  <table className='table bordered'>
+                    <thead>
+                      <tr>
+                        <th>Image</th>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>Qty</th>
+                        <th>Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {cartItems.map((item, index) => (
+                        <Tr item={item} key={index} />
+                      ))}
+                    </tbody>
+                  </table>
+                  <button className='buy__btn'>
+                    <Link to='/shop'>Continue shopping</Link>
+                  </button>
+                </>
               )}
-              <button className='buy__btn'>
-                <Link to='/shop'>Continue shopping</Link>
-              </button>
             </Col>
-            <Col lg='3'>
+            <Col lg='3' className='mt-3'>
               {cartItems.length === 0 ? (
                 ''
               ) : (
