@@ -1,0 +1,6 @@
+.admin__add-products .form__group span {
+  cursor: default;
+  letter-spacing: 1px;
+  border: none;
+  padding: 0;
+}

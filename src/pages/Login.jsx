@@ -67,7 +67,7 @@ const Login = () => {
                       onChange={(e) => setPassword(e.target.value)}
                     />
                   </FormGroup>
-                  <button type='submit' className='buy__btn auth__btn'>
+                  <button type='submit' className='primary__btn auth__btn'>
                     Login
                   </button>
                   <p>

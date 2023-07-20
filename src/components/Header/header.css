@@ -97,6 +97,7 @@
 }
 .user-logged {
   position: relative;
+  cursor: pointer;
 }
 
 .user-logged-name span {
@@ -111,12 +112,40 @@
 .user-logout {
   display: none;
   position: absolute;
-  top: 15px;
+  top: 40px;
   right: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0px 5px 15px white;
+  background-color: white;
 }
-.user-logout:hover button {
+
+.user-logout span {
   font-weight: 600;
+  display: flex;
+  justify-content: center;
+  height: 30px;
+  align-items: center;
+  width: 100%;
+  background-color: var(--secondary-color);
+  color: #000;
+  margin-bottom: 10px;
+  border-radius: 5px;
 }
+
+.user-logout button {
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  height: 30px;
+  align-items: center;
+  width: 100%;
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: 5px;
+}
+
 .user-logged:hover .user-logout {
   display: block;
 }

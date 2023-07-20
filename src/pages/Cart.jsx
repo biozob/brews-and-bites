@@ -29,7 +29,7 @@ const Cart = () => {
               {cartItems.length === 0 ? (
                 <>
                   <h2 className='fs-4 mb-4'>There are no items in the cart.</h2>
-                  <button className='buy__btn'>
+                  <button className='primary__btn'>
                     <Link to='/shop'>Continue shopping</Link>
                   </button>
                 </>
@@ -51,7 +51,7 @@ const Cart = () => {
                       ))}
                     </tbody>
                   </table>
-                  <button className='buy__btn'>
+                  <button className='primary__btn'>
                     <Link to='/shop'>Continue shopping</Link>
                   </button>
                 </>
@@ -69,7 +69,7 @@ const Cart = () => {
                     </h6>
                   </div>
                   <div>
-                    <button className='buy__btn mt-4 w-100'>
+                    <button className='primary__btn mt-4 w-100'>
                       <i className='ri-store-2-line'></i>
                       <Link to='/checkout'> Go to Checkout</Link>
                     </button>

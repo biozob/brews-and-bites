@@ -14,6 +14,10 @@ import Checkout from './pages/Checkout';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import ProtectedRoute from './routers/ProtectedRoute';
+import AddProducts from './admin/AddProducts';
+import AllProducts from './admin/AllProducts';
+import Dashboard from './admin/Dashboard';
+import Users from './admin/Users';
 
 const router = createBrowserRouter([
   {
@@ -26,12 +30,30 @@ const router = createBrowserRouter([
       { path: 'shop/:id', element: <ProductDetails /> },
       { path: 'cart', element: <Cart /> },
       {
-        path: 'checkout',
-        element: (
-          <ProtectedRoute>
-            <Checkout />
-          </ProtectedRoute>
-        ),
+        path: '/',
+        element: <ProtectedRoute />,
+        children: [
+          {
+            path: '/checkout',
+            element: <Checkout />,
+          },
+          {
+            path: '/dashboard/',
+            element: <Dashboard />,
+          },
+          {
+            path: '/dashboard/all-products',
+            element: <AllProducts />,
+          },
+          {
+            path: '/dashboard/add-products',
+            element: <AddProducts />,
+          },
+          {
+            path: '/dashboard/users',
+            element: <Users />,
+          },
+        ],
       },
       { path: 'login', element: <Login /> },
       { path: 'signup', element: <Signup /> },

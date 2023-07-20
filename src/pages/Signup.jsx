@@ -109,7 +109,7 @@ const Signup = () => {
                       required
                     />
                   </FormGroup>
-                  <button type='submit' className='buy__btn auth__btn'>
+                  <button type='submit' className='primary__btn auth__btn'>
                     Create Account
                   </button>
                   <p>

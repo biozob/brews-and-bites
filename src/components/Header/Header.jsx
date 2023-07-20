@@ -4,7 +4,7 @@ import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import useAuth from '../../custom-hooks/useAuth';
-import { getAuth, signOut } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import { auth } from '../../firebase/config';
 
@@ -93,19 +93,28 @@ const Header = () => {
                         <span>Hi, {currentUser.displayName}</span>
                       </div>
                       <div className='user-logout'>
+                        <span>
+                          <Link to='dashboard'>Dashboard</Link>
+                        </span>
+
                         <button onClick={Logout}>Logout</button>
                       </div>
                     </div>
                   </>
                 ) : (
-                  <Link to='/login'>
-                    <motion.span whileTap={{ scale: 1.5 }}>
-                      <i className='ri-user-line'></i>
-                    </motion.span>
-                  </Link>
+                  <>
+                    <Link to='/dashboard'>
+                      <motion.span whileTap={{ scale: 1.5 }}>
+                        <i className='ri-admin-line'></i>
+                      </motion.span>
+                    </Link>
+                    <Link to='/login'>
+                      <motion.span whileTap={{ scale: 1.5 }}>
+                        <i className='ri-user-line'></i>
+                      </motion.span>
+                    </Link>
+                  </>
                 )}
-                {/* <p>{currentUser.displayName}</p> */}
-
                 <span className='fav__icon'>
                   <i className='ri-heart-line'></i>
                   <span className='badge'>1</span>

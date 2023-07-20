@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { useParams } from 'react-router-dom';
-import products from '../assets/data/products';
 import Helmet from '../components/Helmet/Helmet';
 import '../styles/product-details.css';
 import { motion } from 'framer-motion';
@@ -10,7 +9,12 @@ import { useDispatch } from 'react-redux';
 import { cartActions } from '../redux/slices/cartSlice';
 import { toast } from 'react-toastify';
 
+import { db } from '../firebase/config';
+import { doc, getDoc } from 'firebase/firestore';
+import useGetData from '../custom-hooks/useGetData';
+
 const ProductDetails = () => {
+  const [product, setProduct] = useState({});
   const [tab, setTab] = useState('desc');
   const reviewUser = useRef('');
   const reviewMsg = useRef('');
@@ -18,7 +22,23 @@ const ProductDetails = () => {
 
   const [rating, setRating] = useState(null);
   const { id } = useParams();
-  const product = products.find((item) => item.id === id);
+
+  const { data: products } = useGetData('products');
+
+  const docRef = doc(db, 'products', id);
+
+  useEffect(() => {
+    const getProduct = async () => {
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        setProduct(docSnap.data());
+      } else {
+        console.log('no product!');
+      }
+    };
+    getProduct();
+  }, [docRef]);
 
   const {
     imgUrl,
@@ -64,7 +84,7 @@ const ProductDetails = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     return () => {};
-  }, [product]);
+  }, [products]);
 
   const handleRatingClick = (selectedRating) => {
     setRating(selectedRating);
@@ -82,7 +102,7 @@ const ProductDetails = () => {
               <div className='product__details'>
                 <h2>{productName}</h2>
                 <div className='d-flex justify-content-between'>
-                  <span>{category.toUpperCase()}</span>
+                  <span>{category}</span>
                   <div className='product__rating d-flex align-items-center gap-2 mb-4'>
                     <div>
                       <span>
@@ -94,7 +114,7 @@ const ProductDetails = () => {
                       </span>
                     </div>
                     <p>
-                      (<span>{avgRating}</span> rating)
+                      <span>{avgRating}</span>
                     </p>
                   </div>
                 </div>
@@ -104,7 +124,7 @@ const ProductDetails = () => {
                 <p className='mt-3 mb-4'>{shortDesc}</p>
                 <motion.button
                   whileTap={{ scale: 1.2 }}
-                  className='buy__btn'
+                  className='primary__btn'
                   onClick={addToCart}
                 >
                   Add to Cart
@@ -129,7 +149,7 @@ const ProductDetails = () => {
                   className={`${tab === 'rev' ? 'active__tab' : ''}`}
                   onClick={() => setTab('rev')}
                 >
-                  Reviews ({reviews.length})
+                  Reviews
                 </h6>
               </div>
               {tab === 'desc' ? (
@@ -209,7 +229,7 @@ const ProductDetails = () => {
                         <motion.button
                           whileTap={{ scale: 1.2 }}
                           type='submit'
-                          className='buy__btn'
+                          className='primary__btn'
                         >
                           Submit
                         </motion.button>

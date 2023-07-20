@@ -1,16 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 import Helmet from '../components/Helmet/Helmet';
 import { Container, Row, Col } from 'reactstrap';
 import { motion } from 'framer-motion';
-import products from '../assets/data/products';
 import heroImg from '../assets/images/hero-img.png';
 import '../styles/home.css';
 import { Link } from 'react-router-dom';
 import Services from '../services/Services';
 import ProductsList from '../components/UI/ProductsList';
 
+import useGetData from '../custom-hooks/useGetData';
+
 const Home = () => {
+  const { data: products, loading } = useGetData('products');
+
   const [popularProducts, setPopularProducts] = useState([]);
   const [sodaProducts, setSodaProducts] = useState([]);
   const [beerProducts, setBeerProducts] = useState([]);
@@ -40,7 +43,7 @@ const Home = () => {
     setBeerProducts(filterBeerProducts);
     setJellyProducts(filterJellyProducts);
     setChipsProducts(filterChipsProducts);
-  }, []);
+  }, [products]);
 
   return (
     <Helmet title={'Home'}>
@@ -56,7 +59,10 @@ const Home = () => {
               <div className='hero__content'>
                 <h2>Enjoy life with small BREWS and BITES</h2>
                 <p className='hero__subtitle'>Our Bestsellers in {year}</p>
-                <motion.button whileTap={{ scale: 1.2 }} className='buy__btn'>
+                <motion.button
+                  whileTap={{ scale: 1.2 }}
+                  className='primary__btn'
+                >
                   <Link to='/shop'>Buy Now</Link>
                 </motion.button>
               </div>
@@ -70,8 +76,14 @@ const Home = () => {
             <Col lg='12' className='text-center'>
               <h2 className='section__title'>Popular Products</h2>
             </Col>
-            <ProductsList data={popularProducts} />
-            <ProductsList data={beerProducts} />
+            {loading ? (
+              <h5 className='fw-bold'>Loading...</h5>
+            ) : (
+              <>
+                <ProductsList data={popularProducts} />
+                <ProductsList data={beerProducts} />
+              </>
+            )}
           </Row>
         </Container>
       </section>
@@ -82,8 +94,14 @@ const Home = () => {
             <Col lg='12' className='text-center'>
               <h2 className='section__title'>Best Sellers</h2>
             </Col>
-            <ProductsList data={sodaProducts} />
-            <ProductsList data={chipsProducts} />
+            {loading ? (
+              <h5 className='fw-bold'>Loading...</h5>
+            ) : (
+              <>
+                <ProductsList data={sodaProducts} />
+                <ProductsList data={chipsProducts} />
+              </>
+            )}
           </Row>
         </Container>
       </section>
@@ -93,7 +111,13 @@ const Home = () => {
             <Col lg='12' className='text-center'>
               <h2 className='section__title'>Most wanted</h2>
             </Col>
-            <ProductsList data={jellyProducts} />
+            {loading ? (
+              <h5 className='fw-bold'>Loading...</h5>
+            ) : (
+              <>
+                <ProductsList data={jellyProducts} />
+              </>
+            )}
           </Row>
         </Container>
       </section>
