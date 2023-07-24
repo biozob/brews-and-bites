@@ -103,11 +103,6 @@ const Header = () => {
                   </>
                 ) : (
                   <>
-                    <Link to='/dashboard'>
-                      <motion.span whileTap={{ scale: 1.5 }}>
-                        <i className='ri-admin-line'></i>
-                      </motion.span>
-                    </Link>
                     <Link to='/login'>
                       <motion.span whileTap={{ scale: 1.5 }}>
                         <i className='ri-user-line'></i>
@@ -115,10 +110,6 @@ const Header = () => {
                     </Link>
                   </>
                 )}
-                <span className='fav__icon'>
-                  <i className='ri-heart-line'></i>
-                  <span className='badge'>1</span>
-                </span>
                 <span className='cart__icon'>
                   <Link to='/cart'>
                     <i className='ri-shopping-bag-line'></i>

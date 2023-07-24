@@ -51,8 +51,7 @@
   cursor: pointer;
 }
 
-.cart__icon,
-.fav__icon {
+.cart__icon {
   position: relative;
 }
 

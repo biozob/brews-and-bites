@@ -53,7 +53,6 @@ const Signup = () => {
           const errorCode = error.code;
           const errorMessage = error.message;
 
-          console.log(errorCode);
           setLoading(false);
           toast.error(errorMessage);
         });

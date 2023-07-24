@@ -23,7 +23,6 @@ const Login = () => {
         // Signed in
         const user = userCredential.user;
 
-        console.log(user);
         setLoading(false);
         toast.success('Logged in successfully');
         navigate('/checkout');
@@ -32,7 +31,6 @@ const Login = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
 
-        console.log(errorCode);
         setLoading(false);
         toast.error(errorMessage);
       });

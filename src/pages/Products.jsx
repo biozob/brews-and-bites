@@ -1,28 +1,38 @@
-import { useState } from 'react';
-
+import { useState, useEffect } from 'react';
 import Helmet from '../components/Helmet/Helmet';
 import CommonSection from '../components/UI/CommonSection';
 import { Container, Row, Col } from 'reactstrap';
 import '../styles/products.css';
-
-import products from '../assets/data/products';
 import ProductsList from '../components/UI/ProductsList';
+import useGetData from '../custom-hooks/useGetData';
 
 const Products = () => {
-  const [productsData, setProductsData] = useState(products);
+  const { data: products, loading } = useGetData('products');
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
+  useEffect(() => {
+    // Set the default display to show all products on initial load
+    setFilteredProducts(products);
+  }, [products]);
 
   const handleFilter = (e) => {
     const filterValue = e.target.value;
-    const filteredProducts = products.filter(
-      (item) => item.category === filterValue
-    );
-    setProductsData(filteredProducts);
+    if (filterValue === 'all') {
+      // If "Filter By Category" is selected, show all products
+      setFilteredProducts(products);
+    } else {
+      // Filter products based on the selected category
+      const filteredProducts = products.filter(
+        (item) => item.category === filterValue
+      );
+      setFilteredProducts(filteredProducts);
+    }
     document.getElementById('sortBy').selectedIndex = 0;
   };
 
   const handleSortBy = (e) => {
     const selectedSortOrder = e.target.value;
-    const sortedProducts = [...productsData];
+    const sortedProducts = [...filteredProducts];
 
     sortedProducts.sort((a, b) => {
       if (selectedSortOrder === 'asc') {
@@ -32,7 +42,7 @@ const Products = () => {
       }
     });
 
-    setProductsData(sortedProducts);
+    setFilteredProducts(sortedProducts);
   };
 
   const handleSearch = (e) => {
@@ -43,7 +53,7 @@ const Products = () => {
         item.category.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    setProductsData(searchedProducts);
+    setFilteredProducts(searchedProducts);
   };
 
   return (
@@ -56,7 +66,7 @@ const Products = () => {
               <Col lg='3' md='6' sm='6'>
                 <div className='filter__widget'>
                   <select onChange={handleFilter}>
-                    <option>Filter By Category</option>
+                    <option value='all'>Filter By Category</option>
                     <option value='soda'>Soda</option>
                     <option value='beer'>Beer</option>
                     <option value='chocolate'>Chocolate</option>
@@ -92,10 +102,10 @@ const Products = () => {
         <section className='pt-2'>
           <Container>
             <Row>
-              {productsData.length === 0 ? (
-                <h1>No products are found!</h1>
+              {loading ? (
+                <h5 className='fw-bold'>Loading...</h5>
               ) : (
-                <ProductsList data={productsData} />
+                <ProductsList data={filteredProducts} />
               )}
             </Row>
           </Container>
