@@ -24,10 +24,13 @@ Run with Docker
 
 ## Screenshots
 
-![App Screenshot](https://i.imgur.com/nm9i5nm.jpeg)
-![App Screenshot](https://i.imgur.com/9BJFYgB.jpg)
-![App Screenshot](https://i.imgur.com/vqHpFhz.jpg)
-![App Screenshot](https://i.imgur.com/s7aI2PW.jpg)
-![App Screenshot](https://i.imgur.com/lkC28W8.jpg)
-![App Screenshot](https://i.imgur.com/XjIKQGO.jpg)
-![App Screenshot](https://i.imgur.com/FuDf17D.jpg)
+![App Screenshot](https://i.imgur.com/yL5jTS4.jpg)
+![App Screenshot](https://i.imgur.com/cb1ZIE1.jpg)
+![App Screenshot](https://i.imgur.com/pZITa1M.jpg)
+![App Screenshot](https://i.imgur.com/gGbO7Rf.jpg)
+![App Screenshot](https://i.imgur.com/0ziUy1c.jpg)
+![App Screenshot](https://i.imgur.com/mV4m3Lg.jpg)
+![App Screenshot](https://i.imgur.com/L2TtIJH.jpg)
+![App Screenshot](https://i.imgur.com/7DTahjT.jpg)
+![App Screenshot](https://i.imgur.com/M0hRP6q.jpg)
+![App Screenshot](https://i.imgur.com/lRzqzeN.jpg)

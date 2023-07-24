@@ -24,12 +24,15 @@
 .tab__wrapper h6 {
   color: var(--primary-color);
   font-weight: 500;
-  font-style: 1rem;
+  font-size: 1rem;
   cursor: pointer;
+  padding: 5px;
 }
 
-.active__tab {
+.tab__wrapper .active__tab {
   font-weight: 600;
+  background: var(--secondary-color);
+  border-radius: 5px;
 }
 
 .tab__content p {
