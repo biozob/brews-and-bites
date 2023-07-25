@@ -14,6 +14,7 @@ Go to the project directory
 
 ```bash
   cd brews-and-bites
+  npm install
 ```
 
 Run with Docker
